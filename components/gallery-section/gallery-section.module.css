@@ -23,6 +23,7 @@
   border-radius: var(--radius-lg);
   background: var(--clr-border);
   cursor: pointer;
+  min-height: 220px;
 }
 
 .item::after {
