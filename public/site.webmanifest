@@ -1,0 +1,12 @@
+{
+  "name": "DCMontage bei Solaringenieur",
+  "short_name": "DCMontage",
+  "description": "Professionelle DC-Montage von Photovoltaikanlagen in ganz Deutschland",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#f4a000",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
