@@ -9,10 +9,10 @@ import styles from './nav-bar.module.css';
 
 // Список посилань навігації — href вказують на секції сторінки через якір (#)
 const NAV_LINKS = [
-  { href: '#leistungen', label: 'Leistungen' },
-  { href: '#referenzen', label: 'Referenzen' },
-  { href: '#ueber-uns', label: 'Über uns' },
-  { href: '#kontakt', label: 'Kontakt' },
+  { href: '/#leistungen', label: 'Leistungen' },
+  { href: '/#referenzen', label: 'Referenzen' },
+  { href: '/#ueber-uns', label: 'Über uns' },
+  { href: '/#kontakt', label: 'Kontakt' },
 ];
 
 // solidBg — якщо true, навбар одразу показується з білим фоном (для сторінок без темного hero)
@@ -64,7 +64,7 @@ export default function NavBar({ solidBg = false }) {
         </ul>
 
         {/* Кнопка CTA (заклик до дії) — телефонний номер */}
-        <a href="tel:+4969" className={`btn btn-primary ${styles.cta}`}>
+        <a href="/#kontakt" className={`btn btn-primary ${styles.cta}`}>
           Angebot anfordern
         </a>
 
@@ -95,7 +95,7 @@ export default function NavBar({ solidBg = false }) {
             </li>
           ))}
           <li>
-            <a href="#kontakt" className={`btn btn-primary ${styles.mobCta}`} onClick={close}>
+            <a href="/#kontakt" className={`btn btn-primary ${styles.mobCta}`} onClick={close}>
               Angebot anfordern
             </a>
           </li>
