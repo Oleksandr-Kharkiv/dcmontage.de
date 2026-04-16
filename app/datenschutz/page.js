@@ -14,7 +14,7 @@ export const dynamic = 'force-static';
 export default function DatenschutzPage() {
   return (
     <>
-      <NavBar />
+      <NavBar solidBg />
       <main className={styles.main}>
         <div className="container">
           <div className={styles.back}>

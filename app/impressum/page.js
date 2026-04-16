@@ -14,13 +14,16 @@ export const dynamic = 'force-static';
 export default function ImpressumPage() {
   return (
     <>
-      <NavBar />
+      <NavBar solidBg />
       <main className={styles.main}>
         <div className="container">
           <div className={styles.back}>
             <Link href="/" className={styles.backLink}>← Zurück zur Startseite</Link>
           </div>
           <article className={styles.article}>
+            <div className={styles.demoBanner}>
+              ⚠️ Diese Website ist ein <strong>Demo- und Lernprojekt</strong>. Alle Angaben sind fiktiv und dienen ausschließlich zu Demonstrationszwecken.
+            </div>
             <h1>Impressum</h1>
 
             <h2>Angaben gemäß § 5 TMG</h2>

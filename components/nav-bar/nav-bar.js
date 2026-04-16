@@ -15,10 +15,11 @@ const NAV_LINKS = [
   { href: '#kontakt', label: 'Kontakt' },
 ];
 
-export default function NavBar() {
+// solidBg — якщо true, навбар одразу показується з білим фоном (для сторінок без темного hero)
+export default function NavBar({ solidBg = false }) {
   // scrolled — чи прокрутив користувач сторінку більше ніж на 40px
   // (змінює стиль хедера: додає тінь/фон через CSS клас)
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(solidBg);
 
   // menuOpen — чи відкрите мобільне меню (бургер)
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,7 +27,7 @@ export default function NavBar() {
   useEffect(() => {
     // Слухаємо прокрутку сторінки
     // passive: true — оптимізація для плавного скролу (браузер не чекає на JS)
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(solidBg || window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
 
     // Прибираємо слухач при розмонтуванні компонента (очищення пам'яті)

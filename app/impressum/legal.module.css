@@ -63,3 +63,13 @@
 }
 
 .article a:hover { color: var(--clr-primary-dk); }
+
+.demoBanner {
+  background: #fff8e1;
+  border: 1px solid #f4a000;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  color: #7a5c00;
+}

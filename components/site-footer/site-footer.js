@@ -31,10 +31,10 @@ export default function SiteFooter() {
             <p className={styles.colTitle}>Navigation</p>
             <ul className={styles.colList}>
               {[
-                ['#leistungen', 'Leistungen'],
-                ['#referenzen', 'Referenzen'],
-                ['#ueber-uns', 'Über uns'],
-                ['#kontakt', 'Kontakt'],
+                ['/#leistungen', 'Leistungen'],
+                ['/#referenzen', 'Referenzen'],
+                ['/#ueber-uns', 'Über uns'],
+                ['/#kontakt', 'Kontakt'],
               ].map(([href, label]) => (
                 <li key={href}><a href={href} className={styles.footLink}>{label}</a></li>
               ))}
