@@ -1,14 +1,20 @@
+// API-маршрут для обробки контактної форми.
+// Виконується на сервері (не в браузері) — тому тут безпечно використовувати API ключі.
+// URL: POST /api/contact
+// force-dynamic — запускається на кожен запит, не кешується.
+
 import { NextResponse } from 'next/server';
 
-// This route runs server-side on every request (SSR)
 export const dynamic = 'force-dynamic';
 
 export async function POST(request) {
   try {
+    // Зчитуємо JSON з тіла запиту (дані з контактної форми)
     const body = await request.json();
     const { firstName, lastName, email, phone, service, message, privacy } = body;
 
-    // Basic server-side validation
+    // Серверна валідація — перевіряємо обов'язкові поля
+    // (клієнтська валідація через react-hook-form — це додатковий захист)
     if (!firstName || !lastName || !email || !message || !privacy) {
       return NextResponse.json({ error: 'Pflichtfelder fehlen' }, { status: 400 });
     }
@@ -18,9 +24,9 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Ungültige E-Mail-Adresse' }, { status: 400 });
     }
 
-    // --- Send email via Resend ---
-    // Set RESEND_API_KEY in your Vercel environment variables.
-    // If not configured, the form still returns success in development.
+    // Відправка листа через Resend (https://resend.com)
+    // API ключ зберігається у змінній середовища RESEND_API_KEY на Vercel.
+    // Якщо ключа немає (локальна розробка) — просто логуємо в консоль.
     const apiKey = process.env.RESEND_API_KEY;
 
     if (apiKey) {
@@ -28,9 +34,9 @@ export async function POST(request) {
       const resend = new Resend(apiKey);
 
       await resend.emails.send({
-        from: 'DCMontage Kontaktformular <noreply@dcmontage.de>',
-        to: ['info@dcmontage.de'],
-        replyTo: email,
+        from: 'DCMontage Kontaktformular <noreply@dcmontage.de>', // відправник (домен верифікований у Resend)
+        to: ['info@dcmontage.de'],                                // отримувач — пошта компанії
+        replyTo: email,                                           // відповідь піде напряму клієнту
         subject: `Neue Anfrage von ${firstName} ${lastName}${service ? ` – ${service}` : ''}`,
         html: `
           <h2>Neue Kontaktanfrage</h2>
@@ -47,7 +53,7 @@ export async function POST(request) {
         `,
       });
     } else {
-      // Development: just log
+      // Локальна розробка без API ключа — виводимо дані в термінал
       console.log('[Contact Form]', { firstName, lastName, email, service, message });
     }
 

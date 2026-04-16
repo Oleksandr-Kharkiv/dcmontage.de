@@ -1,6 +1,10 @@
+// Секція галереї — сітка фотографій виконаних проєктів.
+// Серверний компонент — всі зображення оптимізуються через Next.js Image.
+
 import Image from 'next/image';
 import styles from './gallery-section.module.css';
 
+// Масив фотографій — щоб додати нове фото, просто додай об'єкт {src, alt}
 const PHOTOS = [
   { src: 'https://mega-solar.online/wp-content/uploads/2023/12/6d36b37f-cc16-47af-9029-bfaf1b071cd8.jpeg',  alt: 'PV-Aufdachanlage – Wohngebäude' },
   { src: 'https://mega-solar.online/wp-content/uploads/2023/12/16e3ffac-7f97-4a6a-a56d-e0c8fa6d15ff-768x1024.jpeg', alt: 'DC-Montage in Arbeit' },
@@ -14,6 +18,7 @@ const PHOTOS = [
 
 export default function GallerySection() {
   return (
+    // id="referenzen" — якір для навігації (#referenzen у nav-bar.js)
     <section id="referenzen" className={styles.section} aria-labelledby="gallery-title">
       <div className="container">
         <div className={styles.head}>
@@ -25,6 +30,7 @@ export default function GallerySection() {
           </p>
         </div>
 
+        {/* CSS Grid сітка — перше фото (i === 0) отримує клас featured і займає 2х2 клітинки */}
         <div className={styles.grid}>
           {PHOTOS.map((photo, i) => (
             <figure key={i} className={`${styles.item} ${i === 0 ? styles.featured : ''}`}>
@@ -36,6 +42,7 @@ export default function GallerySection() {
                 style={{ objectFit: 'cover' }}
                 loading="lazy"
               />
+              {/* Підпис з'являється при наведенні (hover) через CSS */}
               <figcaption className={styles.caption}>{photo.alt}</figcaption>
             </figure>
           ))}

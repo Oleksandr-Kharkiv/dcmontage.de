@@ -1,6 +1,10 @@
+// Секція послуг — показує три основні напрямки роботи компанії.
+// Серверний компонент — рендериться на сервері, зображення оптимізуються через Next.js Image.
+
 import Image from 'next/image';
 import styles from './services-section.module.css';
 
+// Дані послуг — щоб додати нову послугу, просто додай об'єкт до цього масиву
 const SERVICES = [
   {
     id: 'aufdach',
@@ -27,6 +31,7 @@ const SERVICES = [
 
 export default function ServicesSection() {
   return (
+    // id="leistungen" — якір для навігації (#leistungen у nav-bar.js)
     <section id="leistungen" className={styles.section}>
       <div className="container">
         <div className={styles.head}>
@@ -38,6 +43,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
+        {/* Сітка карток послуг */}
         <div className={styles.grid}>
           {SERVICES.map((svc) => (
             <ServiceCard key={svc.id} {...svc} />
@@ -48,6 +54,7 @@ export default function ServicesSection() {
   );
 }
 
+// Картка окремої послуги — зображення + заголовок + опис + список особливостей
 function ServiceCard({ title, desc, img, features }) {
   return (
     <article className={styles.card}>
@@ -56,9 +63,9 @@ function ServiceCard({ title, desc, img, features }) {
           src={img}
           alt={title}
           fill
-          sizes="(max-width: 768px) 100vw, 33vw"
+          sizes="(max-width: 768px) 100vw, 33vw" // підказка браузеру для вибору розміру зображення
           style={{ objectFit: 'cover' }}
-          loading="lazy"
+          loading="lazy" // завантажується лише коли картка потрапляє у viewport
         />
         <div className={styles.imgOverlay} />
       </div>

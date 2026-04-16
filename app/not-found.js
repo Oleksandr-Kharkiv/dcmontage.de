@@ -1,3 +1,6 @@
+// Сторінка 404 — показується коли користувач відкриває неіснуючий URL.
+// Next.js автоматично використовує цей файл для всіх 404 помилок.
+
 import Link from 'next/link';
 import NavBar from '@/components/nav-bar/nav-bar';
 import SiteFooter from '@/components/site-footer/site-footer';

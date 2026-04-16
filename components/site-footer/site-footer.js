@@ -1,13 +1,17 @@
+// Футер сайту — нижня частина з навігацією, контактами та копірайтом.
+// Серверний компонент — статичний, не потребує браузерних хуків.
+
 import Link from 'next/link';
 import styles from './site-footer.module.css';
 
 export default function SiteFooter() {
+  // Поточний рік для копірайту — автоматично оновлюється щороку
   const year = new Date().getFullYear();
   return (
     <footer className={styles.footer} role="contentinfo">
       <div className="container">
         <div className={styles.top}>
-          {/* Brand */}
+          {/* Бренд — логотип + короткий слоган */}
           <div className={styles.brand}>
             <Link href="/" className={styles.logo} aria-label="DCMontage – Startseite">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -22,7 +26,7 @@ export default function SiteFooter() {
             </p>
           </div>
 
-          {/* Links */}
+          {/* Навігаційні посилання — якорі на секції головної сторінки */}
           <nav aria-label="Footer Navigation">
             <p className={styles.colTitle}>Navigation</p>
             <ul className={styles.colList}>
@@ -37,7 +41,7 @@ export default function SiteFooter() {
             </ul>
           </nav>
 
-          {/* Legal */}
+          {/* Юридичні сторінки — окремі маршрути (/impressum, /datenschutz) */}
           <nav aria-label="Rechtliches">
             <p className={styles.colTitle}>Rechtliches</p>
             <ul className={styles.colList}>
@@ -50,7 +54,7 @@ export default function SiteFooter() {
             </ul>
           </nav>
 
-          {/* Contact */}
+          {/* Контактна інформація */}
           <div>
             <p className={styles.colTitle}>Kontakt</p>
             <address className={styles.addr}>
@@ -64,6 +68,7 @@ export default function SiteFooter() {
           </div>
         </div>
 
+        {/* Нижній рядок з копірайтом */}
         <div className={styles.bottom}>
           <p className={styles.copy}>
             © {year} DCMontage bei Solaringenieur. Alle Rechte vorbehalten.

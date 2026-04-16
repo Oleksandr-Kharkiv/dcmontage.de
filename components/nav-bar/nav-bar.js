@@ -1,8 +1,13 @@
+// Навігаційна панель сайту.
+// 'use client' — потрібен бо використовуємо useState та useEffect (браузерні хуки).
+// Серверні компоненти не можуть мати стан або слухати події браузера.
+
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './nav-bar.module.css';
 
+// Список посилань навігації — href вказують на секції сторінки через якір (#)
 const NAV_LINKS = [
   { href: '#leistungen', label: 'Leistungen' },
   { href: '#referenzen', label: 'Referenzen' },
@@ -11,21 +16,30 @@ const NAV_LINKS = [
 ];
 
 export default function NavBar() {
+  // scrolled — чи прокрутив користувач сторінку більше ніж на 40px
+  // (змінює стиль хедера: додає тінь/фон через CSS клас)
   const [scrolled, setScrolled] = useState(false);
+
+  // menuOpen — чи відкрите мобільне меню (бургер)
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    // Слухаємо прокрутку сторінки
+    // passive: true — оптимізація для плавного скролу (браузер не чекає на JS)
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Прибираємо слухач при розмонтуванні компонента (очищення пам'яті)
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Закриває мобільне меню після кліку на посилання
   const close = () => setMenuOpen(false);
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`} role="banner">
       <nav className={`container ${styles.nav}`} aria-label="Hauptnavigation">
-        {/* Logo */}
+        {/* Логотип — SVG іконка + текст, клікабельний, веде на головну */}
         <Link href="/" className={styles.logo} aria-label="DCMontage – Startseite">
           <span className={styles.logoIcon} aria-hidden="true">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -39,7 +53,7 @@ export default function NavBar() {
           </span>
         </Link>
 
-        {/* Desktop links */}
+        {/* Десктопні посилання (видимі на великих екранах) */}
         <ul className={styles.links} role="list">
           {NAV_LINKS.map(({ href, label }) => (
             <li key={href}>
@@ -48,12 +62,12 @@ export default function NavBar() {
           ))}
         </ul>
 
-        {/* CTA */}
+        {/* Кнопка CTA (заклик до дії) — телефонний номер */}
         <a href="tel:+4969" className={`btn btn-primary ${styles.cta}`}>
           Angebot anfordern
         </a>
 
-        {/* Burger */}
+        {/* Бургер-кнопка для мобільного меню */}
         <button
           className={styles.burger}
           aria-label={menuOpen ? 'Menü schließen' : 'Menü öffnen'}
@@ -67,7 +81,7 @@ export default function NavBar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Мобільне меню — показується/ховається через CSS клас mobOpen */}
       <div
         id="mob-menu"
         className={`${styles.mobMenu} ${menuOpen ? styles.mobOpen : ''}`}

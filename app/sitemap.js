@@ -1,3 +1,8 @@
+// Автоматична генерація sitemap.xml для пошукових систем (SEO).
+// Next.js сам перетворює цей файл на /sitemap.xml при білді.
+// priority — важливість сторінки для пошуковиків (від 0 до 1).
+// changeFrequency — як часто сторінка змінюється (підказка для Google).
+
 export default function sitemap() {
   const base = 'https://dcmontage.de';
   return [

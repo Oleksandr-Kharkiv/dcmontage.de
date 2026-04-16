@@ -1,24 +1,29 @@
+// Головна секція (hero) — перше що бачить відвідувач.
+// Серверний компонент (без 'use client') — рендериться на сервері, добре для SEO.
+
 import Image from 'next/image';
 import styles from './hero-section.module.css';
 
 export default function HeroSection() {
   return (
     <section className={styles.hero} aria-label="Hero">
-      {/* Background image */}
+      {/* Фонове зображення з затемненням (overlay).
+          aria-hidden="true" — прихований від скрін-рідерів, бо це декоративний елемент. */}
       <div className={styles.bg} aria-hidden="true">
         <Image
           src="https://mega-solar.online/wp-content/uploads/2023/12/IMG_9657-edited-scaled.jpeg"
           alt=""
-          fill
-          priority
-          sizes="100vw"
+          fill           // заповнює весь батьківський контейнер
+          priority       // завантажується першим (LCP — найбільший елемент на екрані)
+          sizes="100vw"  // займає 100% ширини екрану
           style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
-          quality={85}
+          quality={85}   // якість стиснення (налаштована в next.config.mjs)
         />
         <div className={styles.overlay} />
       </div>
 
       <div className={`container ${styles.content}`}>
+        {/* Бейдж "Zertifiziertes Montageteam" */}
         <div className={styles.badge}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <circle cx="8" cy="8" r="8" fill="#f4a000"/>
@@ -27,6 +32,7 @@ export default function HeroSection() {
           Zertifiziertes Montageteam
         </div>
 
+        {/* H1 — головний заголовок сторінки, важливий для SEO */}
         <h1 className={styles.title}>
           DC-Montage von{' '}
           <span className={styles.accent}>Photovoltaikanlagen</span>{' '}
@@ -39,6 +45,7 @@ export default function HeroSection() {
           und direkt für Privat- und Gewerbekunden.
         </p>
 
+        {/* Кнопки CTA (заклики до дії) */}
         <div className={styles.actions}>
           <a href="#kontakt" className="btn btn-primary">
             Kostenloses Angebot
@@ -51,6 +58,7 @@ export default function HeroSection() {
           </a>
         </div>
 
+        {/* Статистика компанії */}
         <div className={styles.stats}>
           {STATS.map(({ value, label }) => (
             <div key={label} className={styles.stat}>
@@ -61,7 +69,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Анімований індикатор прокрутки вниз */}
       <div className={styles.scrollHint} aria-hidden="true">
         <span />
       </div>
@@ -69,6 +77,7 @@ export default function HeroSection() {
   );
 }
 
+// Дані для блоку статистики — винесені окремо для зручного редагування
 const STATS = [
   { value: '500+', label: 'Projekte abgeschlossen' },
   { value: '100%', label: 'Bundesweit tätig' },
