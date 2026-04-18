@@ -9,6 +9,7 @@ import ServicesSection from '@/components/services-section/services-section';
 import WhyUsSection from '@/components/why-us-section/why-us-section';
 import GallerySection from '@/components/gallery-section/gallery-section';
 import AboutSection from '@/components/about-section/about-section';
+import FaqSection from '@/components/faq-section/faq-section';
 import ContactSection from '@/components/contact-section/contact-section';
 import SiteFooter from '@/components/site-footer/site-footer';
 
@@ -25,6 +26,7 @@ export default function HomePage() {
         <WhyUsSection />
         <GallerySection />
         <AboutSection />
+        <FaqSection />
         <ContactSection />
       </main>
       <SiteFooter />

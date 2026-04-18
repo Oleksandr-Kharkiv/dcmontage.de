@@ -1,4 +1,6 @@
 import { Inter } from 'next/font/google';
+import CookieBanner from '@/components/cookie-banner/cookie-banner';
+import BackToTop from '@/components/back-to-top/back-to-top';
 import './globals.css';
 
 const inter = Inter({
@@ -57,7 +59,11 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <CookieBanner />
+        <BackToTop />
+      </body>
     </html>
   );
 }

@@ -94,7 +94,19 @@ export default function DatenschutzPage() {
               </a>.
             </p>
 
-            <h2>5. Kontakt</h2>
+            <h2>5. Cookies und lokale Speicherung</h2>
+            <p>
+              Diese Website verwendet keine Tracking- oder Marketing-Cookies.
+              Es wird ausschließlich ein technisch notwendiger Eintrag im lokalen Speicher
+              des Browsers (localStorage) gesetzt, um Ihre Bestätigung des Cookie-Hinweises
+              zu speichern. Dieser Eintrag enthält keine personenbezogenen Daten und wird
+              nicht an Dritte übermittelt.
+            </p>
+            <p>
+              Sie können den lokalen Speicher jederzeit in den Einstellungen Ihres Browsers löschen.
+            </p>
+
+            <h2>6. Kontakt</h2>
             <p>
               Bei Fragen zum Datenschutz wenden Sie sich bitte an:{' '}
               <a href="mailto:office@solaringenieur.com">office@solaringenieur.com</a>

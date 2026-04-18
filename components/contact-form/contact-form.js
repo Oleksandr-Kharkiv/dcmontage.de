@@ -2,8 +2,9 @@
 // 'use client' — потрібен бо використовуємо useState та react-hook-form (браузерні хуки).
 
 'use client';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
+import Toast from '@/components/toast/toast';
 import styles from './contact-form.module.css';
 
 // Варіанти послуг для випадаючого списку
@@ -17,6 +18,8 @@ const SERVICE_OPTIONS = [
 export default function ContactForm() {
   // Стан форми: idle (початковий) | loading (відправляємо) | success (успіх) | error (помилка)
   const [status, setStatus] = useState('idle');
+  const [toast, setToast] = useState(null); // { type: 'success'|'error', message }
+  const closeToast = useCallback(() => setToast(null), []);
 
   // react-hook-form — бібліотека для керування формою та валідацією
   // register — підключає поле до форми
@@ -41,14 +44,17 @@ export default function ContactForm() {
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error('Server error');
-      setStatus('success');
-      reset(); // Очищаємо форму після успішної відправки
+      setStatus('idle');
+      reset();
+      setToast({ type: 'success', message: 'Vielen Dank! Wir melden uns innerhalb von 48 Stunden bei Ihnen.' });
     } catch {
-      setStatus('error');
+      setStatus('idle');
+      setToast({ type: 'error', message: 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.' });
     }
   };
 
   return (
+    <>
     <form
       className={styles.form}
       onSubmit={handleSubmit(onSubmit)}
@@ -172,18 +178,10 @@ export default function ContactForm() {
         )}
       </button>
 
-      {/* Повідомлення про результат відправки */}
-      {status === 'success' && (
-        <p className={styles.successMsg} role="status">
-          ✅ Vielen Dank! Wir melden uns innerhalb von 48 Stunden bei Ihnen.
-        </p>
-      )}
-      {status === 'error' && (
-        <p className={styles.errFeedback} role="alert">
-          ❌ Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut oder rufen Sie uns an.
-        </p>
-      )}
     </form>
+    {/* Toast — спливаюче повідомлення після відправки */}
+    {toast && <Toast type={toast.type} message={toast.message} onClose={closeToast} />}
+  </>
   );
 }
 

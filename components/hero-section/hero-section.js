@@ -2,6 +2,7 @@
 // Серверний компонент (без 'use client') — рендериться на сервері, добре для SEO.
 
 import Image from 'next/image';
+import AnimatedCounter from '@/components/animated-counter/animated-counter';
 import styles from './hero-section.module.css';
 
 export default function HeroSection() {
@@ -58,11 +59,13 @@ export default function HeroSection() {
           </a>
         </div>
 
-        {/* Статистика компанії */}
+        {/* Статистика компанії з анімованими лічильниками */}
         <div className={styles.stats}>
-          {STATS.map(({ value, label }) => (
+          {STATS.map(({ value, suffix, label }) => (
             <div key={label} className={styles.stat}>
-              <strong className={styles.statValue}>{value}</strong>
+              <strong className={styles.statValue}>
+                <AnimatedCounter value={value} suffix={suffix} />
+              </strong>
               <span className={styles.statLabel}>{label}</span>
             </div>
           ))}
@@ -77,9 +80,9 @@ export default function HeroSection() {
   );
 }
 
-// Дані для блоку статистики — винесені окремо для зручного редагування
+// Дані для блоку статистики — value це число для анімації, suffix — символ після числа
 const STATS = [
-  { value: '500+', label: 'Projekte abgeschlossen' },
-  { value: '100%', label: 'Bundesweit tätig' },
-  { value: '48h', label: 'Reaktionszeit' },
+  { value: 500, suffix: '+', label: 'Projekte abgeschlossen' },
+  { value: 100, suffix: '%', label: 'Bundesweit tätig' },
+  { value: 48, suffix: 'h', label: 'Reaktionszeit' },
 ];
