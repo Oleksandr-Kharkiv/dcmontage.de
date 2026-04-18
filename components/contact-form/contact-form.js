@@ -80,7 +80,11 @@ export default function ContactForm() {
         <input
           {...register('email', {
             required: 'Pflichtfeld',
-            pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Ungültige E-Mail' },
+            validate: (v) => {
+              if (/[^\x00-\x7F]/.test(v)) return 'Nur lateinische Zeichen erlaubt';
+              if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return 'Ungültige E-Mail-Adresse';
+              return true;
+            },
           })}
           type="email"
           placeholder="max@beispiel.de"
@@ -92,9 +96,18 @@ export default function ContactForm() {
       {/* Телефон — необов'язкове поле */}
       <Field label="Telefon" error={errors.phone?.message}>
         <input
-          {...register('phone')}
+          {...register('phone', {
+            validate: (v) => {
+              if (!v) return true; // необов'язкове поле
+              if (!/^[0-9+\-\s()]*$/.test(v)) return 'Nur Ziffern, +, - erlaubt';
+              const digits = v.replace(/\D/g, '');
+              if (digits.length < 7) return 'Mindestens 7 Ziffern';
+              if (digits.length > 15) return 'Maximal 15 Ziffern';
+              return true;
+            },
+          })}
           type="tel"
-          placeholder="+49 69 …"
+          placeholder="+49 69 12345678"
           autoComplete="tel"
         />
       </Field>
@@ -112,7 +125,10 @@ export default function ContactForm() {
       {/* Повідомлення — мінімум 10 символів */}
       <Field label="Nachricht *" error={errors.message?.message}>
         <textarea
-          {...register('message', { required: 'Pflichtfeld', minLength: { value: 10, message: 'Mindestens 10 Zeichen' } })}
+          {...register('message', {
+            required: 'Pflichtfeld',
+            validate: (v) => v.trim().length >= 10 || 'Mindestens 10 Zeichen',
+          })}
           rows={5}
           placeholder="Beschreiben Sie kurz Ihr Projekt …"
           className={errors.message ? styles.inputErr : ''}

@@ -53,6 +53,7 @@
   color: var(--clr-text-muted);
   line-height: 1.75;
   margin-bottom: var(--space-4);
+  margin-top: var(--space-2);
   font-size: var(--font-size-md);
 }
 

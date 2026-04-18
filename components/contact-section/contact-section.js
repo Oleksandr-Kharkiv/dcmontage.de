@@ -18,7 +18,7 @@ export default function ContactSection() {
             </p>
 
             <div className={styles.contacts}>
-              <a href="mailto:info@dcmontage.de" className={styles.contactItem}>
+              <a href="mailto:office@solaringenieur.com" className={styles.contactItem}>
                 <span className={styles.contactIcon} aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <rect x="2" y="4" width="16" height="12" rx="2" stroke="#f4a000" strokeWidth="1.5"/>
@@ -27,7 +27,7 @@ export default function ContactSection() {
                 </span>
                 <div>
                   <span className={styles.contactLabel}>E-Mail</span>
-                  <span className={styles.contactValue}>info@dcmontage.de</span>
+                  <span className={styles.contactValue}>office@solaringenieur.com</span>
                 </div>
               </a>
 

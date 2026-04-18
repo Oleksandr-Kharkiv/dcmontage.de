@@ -62,8 +62,8 @@ export default function SiteFooter() {
               Löhnunggasse 19<br />
               60386 Offenbach am Main
             </address>
-            <a href="mailto:info@dcmontage.de" className={styles.footLink} style={{ marginTop: '0.75rem', display: 'block' }}>
-              info@dcmontage.de
+            <a href="mailto:office@solaringenieur.com" className={styles.footLink} style={{ marginTop: '0.75rem', display: 'block' }}>
+              office@solaringenieur.com
             </a>
           </div>
         </div>

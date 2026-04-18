@@ -97,7 +97,7 @@ export default function DatenschutzPage() {
             <h2>5. Kontakt</h2>
             <p>
               Bei Fragen zum Datenschutz wenden Sie sich bitte an:{' '}
-              <a href="mailto:info@dcmontage.de">info@dcmontage.de</a>
+              <a href="mailto:office@solaringenieur.com">office@solaringenieur.com</a>
             </p>
           </article>
         </div>

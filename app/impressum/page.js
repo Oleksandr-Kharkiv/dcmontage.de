@@ -36,7 +36,7 @@ export default function ImpressumPage() {
 
             <h2>Kontakt</h2>
             <p>
-              E-Mail: <a href="mailto:info@dcmontage.de">info@dcmontage.de</a>
+              E-Mail: <a href="mailto:office@solaringenieur.com">office@solaringenieur.com</a>
             </p>
 
             <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
