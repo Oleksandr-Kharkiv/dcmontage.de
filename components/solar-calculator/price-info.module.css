@@ -1,0 +1,106 @@
+.info {
+  margin-top: var(--space-12);
+}
+
+/* Дві картки поруч; на мобільному — одна колонка */
+.cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 700px) {
+  .cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Лівий акцентний кант: зелений для «входить», сірий для «не входить» */
+.included {
+  border-left: 4px solid #16a34a;
+}
+
+.excluded {
+  border-left: 4px solid var(--clr-text-muted);
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--clr-dark);
+  margin-bottom: var(--space-4);
+}
+
+.iconCheck,
+.iconCross {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.iconCheck {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.iconCross {
+  background: var(--clr-bg-alt);
+  color: var(--clr-text-muted);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.list li {
+  position: relative;
+  padding-left: var(--space-4);
+  font-size: var(--font-size-md);
+  color: var(--clr-text-muted);
+  line-height: 1.5;
+}
+
+.list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--clr-primary);
+}
+
+.factors {
+  margin-top: var(--space-6);
+  padding: var(--space-4) var(--space-6);
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+}
+
+.factors strong {
+  color: var(--clr-dark);
+}

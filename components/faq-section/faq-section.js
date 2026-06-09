@@ -38,7 +38,9 @@ export default function FaqSection() {
       <div className="container">
         <div className={styles.head}>
           <span className="section-label">FAQ</span>
-          <h2 className="section-title" id="faq-title">Häufige Fragen</h2>
+          <h2 className="section-title" id="faq-title">
+            Häufige Fragen
+          </h2>
           <p className="section-desc">
             Antworten auf die häufigsten Fragen rund um unsere DC-Montageleistungen.
           </p>

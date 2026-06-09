@@ -1,0 +1,159 @@
+/* Сітка калькулятора: ліворуч поля, праворуч підсумок.
+   На мобільному — одна колонка (поля над підсумком). */
+.calculator {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .calculator {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── Поля конфігурації ── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--clr-dark);
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-md);
+  color: var(--clr-text);
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 0 3px rgba(244, 160, 0, 0.15);
+}
+
+.hint {
+  font-size: var(--font-size-sm);
+  color: var(--clr-text-muted);
+}
+
+.hint strong {
+  color: var(--clr-primary-dk);
+}
+
+/* ── Підсумок ── */
+.summary {
+  background: var(--clr-dark);
+  color: #fff;
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-lg);
+  position: sticky;
+  top: 6rem;
+}
+
+.summaryTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.power {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: var(--space-6);
+}
+
+.power strong {
+  color: var(--clr-primary-lt);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rowLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-weight: 600;
+}
+
+.rowDetail {
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.rowCost {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.anfrage {
+  color: var(--clr-primary-lt);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  padding: var(--space-4) 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.totalCost {
+  color: var(--clr-primary);
+  font-size: var(--font-size-2xl);
+}
+
+.note {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+
+.cta {
+  width: 100%;
+}

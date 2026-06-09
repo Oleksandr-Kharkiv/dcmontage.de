@@ -2,7 +2,7 @@
 // 'use client' — потрібен бо використовуємо useState та react-hook-form (браузерні хуки).
 
 'use client';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Toast from '@/components/toast/toast';
 import styles from './contact-form.module.css';
@@ -33,6 +33,28 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm();
 
+  // Якщо користувач прийшов з калькулятора (/solarrechner), у URL є query-параметри
+  // з конфігурацією. Читаємо їх на клієнті й пре-заповнюємо «Nachricht» та «Leistung».
+  // Без параметрів — звичайна порожня форма для контакту.
+  useEffect(() => {
+    const sp = new URLSearchParams(window.location.search);
+    const kwp = sp.get('kwp');
+    const dach = sp.get('dach');
+    const geruest = sp.get('geruest');
+    const summe = sp.get('summe');
+    if (!kwp && !dach && !geruest) return; // немає даних калькулятора — нічого не міняємо
+
+    const lines = ['Anfrage über den Montagekosten-Rechner:'];
+    if (kwp) lines.push(`- Anlagenleistung: ${kwp} kWp`);
+    if (dach) lines.push(`- Dachart: ${dach}`);
+    if (geruest) lines.push(`- Gerüst: ${geruest}`);
+    if (summe) lines.push(`- Geschätzte Kosten: ${summe}`);
+    lines.push('', ''); // порожні рядки — місце для власного тексту користувача
+
+    // reset перезаписує значення полів; решта лишається порожньою
+    reset({ service: 'DC-Montage Aufdachanlage', message: lines.join('\n') });
+  }, [reset]);
+
   // Викликається після успішної валідації всіх полів
   const onSubmit = async (data) => {
     setStatus('loading');
@@ -45,7 +67,12 @@ export default function ContactForm() {
       });
       if (!res.ok) throw new Error('Server error');
       setStatus('idle');
-      reset();
+      // Скидаємо явним порожнім набором, а не reset() — інакше форма повернулась би
+      // до defaultValues, які useEffect міг переписати конфігурацією калькулятора.
+      reset({ firstName: '', lastName: '', email: '', phone: '', service: '', message: '', privacy: false });
+      // Прибираємо query-параметри калькулятора з URL — форму вже відправлено.
+      // Інакше при оновленні сторінки (F5) useEffect знову пре-заповнив би повідомлення.
+      window.history.replaceState(null, '', window.location.pathname);
       setToast({ type: 'success', message: 'Vielen Dank! Wir melden uns innerhalb von 48 Stunden bei Ihnen.' });
     } catch {
       setStatus('idle');

@@ -63,10 +63,10 @@ export default function NavBar({ solidBg = false }) {
           ))}
         </ul>
 
-        {/* Кнопка CTA (заклик до дії) — телефонний номер */}
-        <a href="/#kontakt" className={`btn btn-primary ${styles.cta}`}>
-          Angebot anfordern
-        </a>
+        {/* Кнопка CTA (заклик до дії) — веде на калькулятор вартості */}
+        <Link href="/solarrechner" className={`btn btn-primary ${styles.cta}`}>
+          Kosten berechnen
+        </Link>
 
         {/* Бургер-кнопка для мобільного меню */}
         <button
@@ -95,9 +95,9 @@ export default function NavBar({ solidBg = false }) {
             </li>
           ))}
           <li>
-            <a href="/#kontakt" className={`btn btn-primary ${styles.mobCta}`} onClick={close}>
-              Angebot anfordern
-            </a>
+            <Link href="/solarrechner" className={`btn btn-primary ${styles.mobCta}`} onClick={close}>
+              Kosten berechnen
+            </Link>
           </li>
         </ul>
       </div>
