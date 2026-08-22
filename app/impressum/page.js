@@ -5,7 +5,7 @@ import styles from './legal.module.css';
 
 export const metadata = {
   title: 'Impressum',
-  description: 'Impressum der DCMontage bei Solaringenieur, Löhnunggasse 19, 60386 Offenbach am Main.',
+  description: 'Impressum der DCMontage bei Solaringenieur, Löhnunggasse 19, 60386 Frankfurt.',
   robots: { index: false },
 };
 
@@ -30,7 +30,7 @@ export default function ImpressumPage() {
             <p>
               DCMontage bei Solaringenieur<br />
               Löhnunggasse 19<br />
-              60386 Offenbach am Main<br />
+              60386 Frankfurt<br />
               Deutschland
             </p>
 
@@ -43,7 +43,7 @@ export default function ImpressumPage() {
             <p>
               DCMontage bei Solaringenieur<br />
               Löhnunggasse 19<br />
-              60386 Offenbach am Main
+              60386 Frankfurt
             </p>
 
             <h2>Haftungsausschluss</h2>

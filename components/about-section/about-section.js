@@ -19,7 +19,7 @@ export default function AboutSection() {
               />
             </div>
             <div className={styles.badge}>
-              <strong className={styles.badgeValue}>Offenbach am Main</strong>
+              <strong className={styles.badgeValue}>Frankfurt</strong>
               <span className={styles.badgeLabel}>Unser Standort – bundesweit tätig</span>
             </div>
           </div>
@@ -32,7 +32,7 @@ export default function AboutSection() {
             </h2>
             <p className={styles.lead}>
               Wir sind ein auf DC-Montage spezialisiertes Handwerksunternehmen mit
-              Sitz in Offenbach am Main. Unser Team ist bundesweit tätig und bringt
+              Sitz in Frankfurt. Unser Team ist bundesweit tätig und bringt
               jahrelange Erfahrung in der Installation von Photovoltaikanlagen mit.
             </p>
             <p className={styles.body}>
@@ -54,7 +54,7 @@ export default function AboutSection() {
                 <circle cx="10" cy="7" r="2" stroke="#f4a000" strokeWidth="1.5"/>
               </svg>
               <address className={styles.addressText}>
-                Löhnunggasse 19, 60386 Offenbach am Main
+                Löhnunggasse 19, 60386 Frankfurt
               </address>
             </div>
 

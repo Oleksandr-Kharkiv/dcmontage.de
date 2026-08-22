@@ -1,6 +1,6 @@
 # DCMontage bei Solaringenieur – Website
 
-Moderner, performanter Next.js 15-Firmenauftritt für **DCMontage bei Solaringenieur**, Offenbach am Main.
+Moderner, performanter Next.js 15-Firmenauftritt für **DCMontage bei Solaringenieur**, Frankfurt.
 
 ## Tech-Stack
 

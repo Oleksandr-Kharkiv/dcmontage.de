@@ -54,7 +54,7 @@ export default function ContactSection() {
                 <div>
                   <span className={styles.contactLabel}>Adresse</span>
                   <address className={styles.contactValue} style={{ fontStyle: 'normal' }}>
-                    Löhnunggasse 19<br />60386 Offenbach am Main
+                    Löhnunggasse 19<br />60386 Frankfurt
                   </address>
                 </div>
               </div>

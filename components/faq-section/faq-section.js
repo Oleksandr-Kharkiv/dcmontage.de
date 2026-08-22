@@ -12,7 +12,7 @@ const FAQS = [
   },
   {
     q: 'In welchen Regionen Deutschlands sind Sie tätig?',
-    a: 'Wir sind bundesweit tätig – von Bayern bis Hamburg, von NRW bis Sachsen. Unser Standort ist Offenbach am Main, aber wir nehmen Aufträge aus ganz Deutschland an.',
+    a: 'Wir sind bundesweit tätig – von Bayern bis Hamburg, von NRW bis Sachsen. Unser Standort ist Frankfurt, aber wir nehmen Aufträge aus ganz Deutschland an.',
   },
   {
     q: 'Wie schnell können Sie ein Projekt starten?',

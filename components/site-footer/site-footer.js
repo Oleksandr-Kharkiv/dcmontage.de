@@ -15,11 +15,19 @@ export default function SiteFooter() {
           <div className={styles.brand}>
             <Link href="/" className={styles.logo} aria-label="DCMontage – Startseite">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <rect width="32" height="32" rx="8" fill="#f4a000"/>
-                <path d="M8 22L16 10L24 22" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M11 19h10" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/>
+                <rect width="32" height="32" rx="8" fill="#f4a000" />
+                <path
+                  d="M8 22L16 10L24 22"
+                  stroke="#fff"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path d="M11 19h10" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" />
               </svg>
-              <span><strong>DC</strong>Montage</span>
+              <span>
+                <strong>DC</strong>Montage
+              </span>
             </Link>
             <p className={styles.tagline}>
               Professionelle DC-Montage von Photovoltaikanlagen – bundesweit.
@@ -36,7 +44,11 @@ export default function SiteFooter() {
                 ['/#ueber-uns', 'Über uns'],
                 ['/#kontakt', 'Kontakt'],
               ].map(([href, label]) => (
-                <li key={href}><a href={href} className={styles.footLink}>{label}</a></li>
+                <li key={href}>
+                  <a href={href} className={styles.footLink}>
+                    {label}
+                  </a>
+                </li>
               ))}
             </ul>
           </nav>
@@ -49,7 +61,11 @@ export default function SiteFooter() {
                 ['/impressum', 'Impressum'],
                 ['/datenschutz', 'Datenschutz'],
               ].map(([href, label]) => (
-                <li key={href}><Link href={href} className={styles.footLink}>{label}</Link></li>
+                <li key={href}>
+                  <Link href={href} className={styles.footLink}>
+                    {label}
+                  </Link>
+                </li>
               ))}
             </ul>
           </nav>
@@ -58,11 +74,17 @@ export default function SiteFooter() {
           <div>
             <p className={styles.colTitle}>Kontakt</p>
             <address className={styles.addr}>
-              DCMontage bei Solaringenieur<br />
-              Löhnunggasse 19<br />
-              60386 Offenbach am Main
+              DCMontage bei Solaringenieur
+              <br />
+              Löhnunggasse 19
+              <br />
+              60386 Frankfurt
             </address>
-            <a href="mailto:office@solaringenieur.com" className={styles.footLink} style={{ marginTop: '0.75rem', display: 'block' }}>
+            <a
+              href="mailto:office@solaringenieur.com"
+              className={styles.footLink}
+              style={{ marginTop: '0.75rem', display: 'block' }}
+            >
               office@solaringenieur.com
             </a>
           </div>
@@ -73,9 +95,7 @@ export default function SiteFooter() {
           <p className={styles.copy}>
             © {year} DCMontage bei Solaringenieur. Alle Rechte vorbehalten.
           </p>
-          <p className={styles.copy}>
-            Offenbach am Main, Deutschland
-          </p>
+          <p className={styles.copy}>Frankfurt, Deutschland</p>
         </div>
       </div>
     </footer>

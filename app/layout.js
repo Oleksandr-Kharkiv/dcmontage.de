@@ -12,14 +12,14 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL('https://dcmontage.de'),
   title: {
-    default: 'DCMontage bei Solaringenieur – Photovoltaik Montage in Offenbach & Deutschland',
+    default: 'DCMontage bei Solaringenieur – Photovoltaik Montage in Frankfurt & Deutschland',
     template: '%s | DCMontage bei Solaringenieur',
   },
   description:
     'Professionelle DC-Montage von Photovoltaikanlagen in ganz Deutschland. Zuverlässig, schnell und zertifiziert. Jetzt kostenloses Angebot anfordern!',
   keywords: [
     'DC Montage', 'Photovoltaik Montage', 'Solaranlage Montage', 'PV Montage',
-    'Solaringenieur', 'Offenbach am Main', 'Deutschland', 'Aufdachanlage', 'Freiflächenanlage',
+    'Solaringenieur', 'Frankfurt', 'Deutschland', 'Aufdachanlage', 'Freiflächenanlage',
   ],
   authors: [{ name: 'DCMontage bei Solaringenieur' }],
   creator: 'DCMontage bei Solaringenieur',
