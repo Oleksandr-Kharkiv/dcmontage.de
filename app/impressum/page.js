@@ -29,8 +29,9 @@ export default function ImpressumPage() {
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
               DCMontage bei Solaringenieur<br />
+              Inhaber: Oleksandr Kolesnichenko<br />
               Löhnunggasse 19<br />
-              60386 Frankfurt<br />
+              60386 Frankfurt am Main<br />
               Deutschland
             </p>
 
@@ -41,9 +42,9 @@ export default function ImpressumPage() {
 
             <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
             <p>
-              DCMontage bei Solaringenieur<br />
+              Oleksandr Kolesnichenko<br />
               Löhnunggasse 19<br />
-              60386 Frankfurt
+              60386 Frankfurt am Main
             </p>
 
             <h2>Haftungsausschluss</h2>
